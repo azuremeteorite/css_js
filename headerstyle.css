@@ -1,0 +1,117 @@
+:root{
+    --text-color: seashell;
+    --accent-color: #5ce0b0;
+} 
+/*>>루트를 지정해놓으면 자동으로 색깔이 통일됨
+{
+color: var(--text-color);
+} 
+*/
+
+body{
+    background: #283c86;
+    background: linear-gradient(90deg, #283c86 0%, #45a247 100%);
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    margin: 0;
+}
+
+.nav {    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(12, 7, 7, 0.89);
+    padding: 8px 12px;   
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+a:hover {
+    background-color: var(--accent-color);
+    color: rgba(12, 7, 7);
+    border-radius: 2px;
+}
+li:hover{
+    background-color: var(--accent-color);
+    color: rgba(12, 7, 7);
+    border-radius: 2px;
+}
+/* li {
+    display : inline-block;
+    margin-left : 0.8rem;
+    margin-right : 0.8rem;
+} 이거때문에 열 정렬이 안 먹혔다..*/
+
+.n_logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-color);
+    padding: 8px 12px;
+}
+
+.n_menu { 
+    font-size: 16px;
+    font-weight: 600;
+    display: flex; /* 메뉴 일렬배치 */
+    list-style: none; /* 리스트 점 빼기 */
+    padding-left: 0;  
+}
+.n_menu li {
+    padding: 8px 12px;
+}
+
+.n_icons {
+    padding-left: 0;
+    display: flex;
+    font-size: 16px;
+    list-style: none;
+    color: var(--text-color);
+} /* ul을 왜 굳이 div로 감싸줬냐 그러니 안먹히지.... */
+.n_icons li{   
+    padding: 8px 12px;
+}
+
+.n_tog{
+    display: none;
+    position: absolute;
+    right: 32px;
+    top: 16px;
+    font-size: 24px;
+}
+
+/*왜 메뉴가 안 넘어가나 했더니 max width 수치에 
+세미콜론을 붙여서.....ㅋㅋㅋㅋ */
+
+@media screen and (max-width: 768px) {
+    .nav{
+        flex-direction: column;
+        align-items: flex-start; /*로고,메뉴바 모두 왼쪽정렬*/
+        padding: 8px 24px;
+    }
+    .n_menu{
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        align-items: center; /*메뉴 바 가운데 정렬*/
+        width: 100%; /*가운데 정렬을 위해 너비를 늘렸다
+        >> 커서를 올리면 전체 한 줄씩 하이라이트가 쳐진다*/
+    }
+    .n_icons{
+        display: none;
+        justify-content: center; /*왜 안먹힘??*/
+        width: 100%;      
+    } 
+    .n_icons li{
+        list-style: none; 
+        text-align: center;
+    }
+    .n_tog{
+        display: block;
+    }
+    .n_menu.active,
+    .n_icons.active{
+        display: flex;
+    }
+} 
