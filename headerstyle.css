@@ -98,6 +98,9 @@ li:hover{
         width: 100%; /*가운데 정렬을 위해 너비를 늘렸다
         >> 커서를 올리면 전체 한 줄씩 하이라이트가 쳐진다*/
     }
+    .n_menu li{
+        width:100%;
+    }
     .n_icons{
         display: none;
         justify-content: center; /*왜 안먹힘??*/
